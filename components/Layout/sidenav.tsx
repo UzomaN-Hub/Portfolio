@@ -33,7 +33,7 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
 
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -80% 0px", // Reverted for specific observation zone
+     
       threshold: 0, 
     };
 
