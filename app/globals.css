@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-amber-50 text-stone-950;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+}
+
+/* Fallback for multi-line text truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
