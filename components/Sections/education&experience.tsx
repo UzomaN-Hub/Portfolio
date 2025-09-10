@@ -3,7 +3,7 @@ import { Pill } from "lucide-react"
 
 export default function EducationExperience() {
   return (
-    <div id="education-experience" className="w-full px-4 py-6 shadow-md dark:border-b dark:border-yellow-500">
+    <div id="education-experience" className="w-full px-4 py-6 shadow-md relative dark:border-b dark:border-yellow-500">
       <div className="flex items-center gap-2 relative cursor-pointer group">
         <Pill size={24} className="dark:text-amber-50" />
         <h1
@@ -14,7 +14,7 @@ export default function EducationExperience() {
         <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-[#734d26] dark:bg-amber-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
       </div>
 
-      <div className="py-20">
+      <div className="py-6">
         {/* Main content */}
         <div className="flex flex-col md:flex-row mt-6 gap-6">
           {/* Education Section */}

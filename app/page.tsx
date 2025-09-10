@@ -55,9 +55,9 @@ export default function Home() {
           <About />
         </AnimateOnScroll>
 
-        <AnimateOnScroll delay={0.1}>
+        {/* <AnimateOnScroll delay={0.1}> */}
           <EducationExperience />
-        </AnimateOnScroll>
+        {/* </AnimateOnScroll> */}
 
         <SkillCard />
        
