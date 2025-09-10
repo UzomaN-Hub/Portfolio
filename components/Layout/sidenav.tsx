@@ -1,4 +1,3 @@
-// components/Layout/sidenav.tsx
 "use client";
 import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
@@ -33,7 +32,7 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
 
     const observerOptions = {
       root: null,
-     
+      rootMargin: "0px", // Changed to 0px for better mobile detection
       threshold: 0, 
     };
 
@@ -79,6 +78,7 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
 
   return (
     <>
+      {/* Mobile toggle button (still fixed) */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className={`fixed top-4 left-4 z-[99] md:hidden p-2 rounded 
@@ -96,12 +96,13 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
         )}
       </button>
 
+      {/* Side navigation */}
       <aside
-        className={`fixed top-0 left-0 h-full w-72 p-6 z-50 md:translate-x-0
+        className={`fixed top-0 left-0 h-full w-72 p-6 z-50 
           ${isLightMode ? 'bg-oil-brown border-r-4 border-text-light-brown' : 'dark:bg-dark-eggshell border-r-4 border-gray-700'}
           transition-transform duration-300 ease-in-out
           ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
-          overflow-y-auto`} 
+          overflow-y-auto md:sticky md:top-0 md:h-screen md:flex-shrink-0 md:translate-x-0`} 
       >
         <div className="mb-20 mt-4"> 
           <Link

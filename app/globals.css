@@ -3,19 +3,17 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-amber-50 text-stone-950;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
   html {
     scroll-behavior: smooth;
   }
-  
+  /* Ensure html and body take full height and are flex for the main layout */
+  html, body, #__next {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
 
-/* Fallback for multi-line text truncation */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-box-orient: vertical;

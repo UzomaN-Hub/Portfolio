@@ -1,9 +1,6 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 import { inter } from "@/app/font";
-import ThemeProvider from "@/components/Layout/themeprovider";
-
 
 export const metadata: Metadata = {
   title: "Uzoma Nwaiwu",
@@ -15,16 +12,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-          <ThemeProvider>{children}</ThemeProvider>
+          {children}
       </body>
     </html>
   );
 }
-            
-          
-      
-       
