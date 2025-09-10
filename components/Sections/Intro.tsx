@@ -62,12 +62,19 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
                 <CircleUser />Say Hello
               </button>
             </Link>
-            <button className={`${poppins.className} antialiased flex items-center justify-center w-full sm:w-auto hover:bg-amber-50 hover:text-oil-brown rounded-full gap-3 py-2.5 px-4 text-sm
-              text-amber-50 bg-oil-brown dark:text-dark-eggshell dark:bg-dark-oil-brown
-              hover:dark:bg-amber-50 hover:dark:text-dark-oil-brown
-              transition-colors duration-300 ease-in-out`}>
-              <FileUser />Download CV
-            </button>
+            <Link
+              href="/Uzoma-Nwaiwu-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Uzoma-Nwaiwu-Resume.pdf"
+            >
+              <button className={`${poppins.className} antialiased flex items-center justify-center w-full sm:w-auto hover:bg-amber-50 hover:text-oil-brown rounded-full gap-3 py-2.5 px-4 text-sm
+                text-amber-50 bg-oil-brown dark:text-dark-eggshell dark:bg-dark-oil-brown
+                hover:dark:bg-amber-50 hover:dark:text-dark-oil-brown
+                transition-colors duration-300 ease-in-out`}>
+                <FileUser />Download CV
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -163,7 +163,7 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
             </Link>
           ))}
         </nav>
-        <div className="mt-16 space-y-6"> 
+        <div className="mt-16 space-y-6 flex flex-col gap-1.5"> 
             <Link href="/#contact"><button className={`${poppins.className} antialiased flex items-center rounded-full gap-3 py-2.5 px-4 text-sm w-full justify-center
                 ${isLightMode
                     ? 'bg-amber-50 text-oil-brown hover:bg-oil-brown hover:text-amber-50'
@@ -173,6 +173,12 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
                 <CircleUser />Say Hello
             </button>
             </Link>
+            <Link 
+              href="/Uzoma-Nwaiwu-Resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              download="Uzoma-Nwaiwu-Resume.pdf"
+            >
             <button className={`${poppins.className} antialiased flex items-center rounded-full gap-3 py-2.5 px-4 text-sm w-full justify-center
                 ${isLightMode
                     ? 'bg-amber-50 text-oil-brown hover:bg-oil-brown hover:text-amber-50'
@@ -181,6 +187,7 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
                 transition-colors duration-300 ease-in-out`}>
                 <FileUser />Download CV
             </button>
+            </Link>
         </div>
       </aside>
     </>
