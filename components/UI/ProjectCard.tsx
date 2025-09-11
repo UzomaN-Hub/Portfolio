@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { playfair, poppins } from "@/app/font";
+import { playfair, space } from "@/app/font";
 
 const projects = [
   {
@@ -58,7 +58,7 @@ export default function ProjectCard() {
               {project.tech.map((tech) => (
                 <span
                   key={tech}
-                  className={`${poppins.className} antialiased rounded-full px-3 py-1 text-xs text-amber-50 bg-oil-brown`}
+                  className={`${space.className} antialiased rounded-full px-3 py-1 text-xs text-amber-50 bg-oil-brown`}
                 >
                   {tech}
                 </span>
@@ -66,18 +66,18 @@ export default function ProjectCard() {
             </div>
             <div className="relative">
               <input type="checkbox" id={project.id} className="peer hidden" />
-              <p className="line-clamp-2 text-justify mt-2 dark:text-amber-50 peer-checked:line-clamp-none">
+              <p className={`${space.className} line-clamp-2 text-justify mt-2 dark:text-amber-50 peer-checked:line-clamp-none`}>
                 {project.description}
               </p>
               <label
                 htmlFor={project.id}
-                className={`${poppins.className} antialiased mt-2 cursor-pointer text-sm text-yellow-500 hover:underline peer-checked:hidden`}
+                className={`${space.className} antialiased mt-2 cursor-pointer text-sm text-yellow-500 hover:underline peer-checked:hidden`}
               >
                 Read More
               </label>
               <label
                 htmlFor={project.id}
-                className={`${poppins.className} antialiased mt-2 cursor-pointer text-sm text-yellow-500 hover:underline hidden peer-checked:inline`}
+                className={`${space.className} antialiased mt-2 cursor-pointer text-sm text-yellow-500 hover:underline hidden peer-checked:inline`}
               >
                 Read Less
               </label>
@@ -87,7 +87,7 @@ export default function ProjectCard() {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${poppins.className} antialiased border border-oil-brown bg-amber-50 text-oil-brown rounded-full px-4 py-2 text-sm hover:text-amber-50 hover:bg-oil-brown transition-colors duration-300 ease-in-out`}
+                className={`${space.className} antialiased border border-oil-brown bg-amber-50 text-oil-brown rounded-full px-4 py-2 text-sm hover:text-amber-50 hover:bg-oil-brown transition-colors duration-300 ease-in-out`}
               >
                 Live Demo
               </Link>

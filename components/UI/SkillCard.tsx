@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { playfair, poppins } from "@/app/font";
+import { playfair, space } from "@/app/font";
 import { Wrench, SquareCode, Database, Settings, Speech, Rocket } from "lucide-react";
 import { motion } from 'framer-motion';
 
@@ -136,7 +136,7 @@ export default function SkillCard() {
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className={`${poppins.className} antialiased flex cursor-pointer items-center border border-oil-brown bg-amber-50 text-oil-brown hover:rounded-full p-1.5 text-sm hover:text-amber-50 hover:bg-oil-brown transition-colors duration-300 ease-in-out`}
+                        className={`${space.className} antialiased flex cursor-pointer items-center border border-oil-brown bg-amber-50 text-oil-brown hover:rounded-full p-1.5 text-sm hover:text-amber-50 hover:bg-oil-brown transition-colors duration-300 ease-in-out`}
                       >
                         {skill}
                       </span>
@@ -148,7 +148,7 @@ export default function SkillCard() {
           </div>
         </div>
 
-        {/* Dots - only seen if there's more than one slide to show */}
+        {/* Dots */}
         {totalSlides > cardsToShow && (
           <div className="flex justify-center mt-8 space-x-2">
             {Array.from({ length: totalSlides - cardsToShow + 1 }).map((_, index) => (

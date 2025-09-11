@@ -41,7 +41,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen"> {/* This div now controls the main layout */}
+    <div className="flex min-h-screen"> 
       {/* Side Navigation Area */}
       <Sidenav isLightMode={isLightMode} onToggleTheme={handleToggleTheme} />
 

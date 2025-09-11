@@ -1,6 +1,7 @@
-import { playfair } from "@/app/font";
+import { playfair, space } from "@/app/font";
 import { UserPen } from "lucide-react";
 import Image from "next/image";
+
 
 export default function About() {
   return (
@@ -15,22 +16,22 @@ export default function About() {
         <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-amber-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
       </div>
 
-      {/* Responsive layout for image and text */}
+      
       <div className="flex flex-col md:flex-row mt-6 gap-6 py-8 md:py-24">
-        {/* Image with limited height */}
+        
         <div className="w-full md:w-1/2 outline-none rounded-lg overflow-hidden flex justify-center mb-6 md:mb-0">
           <Image
             src="/photo.jpg"
             alt="profile"
             width={400}
-            height={500}
-            className="object-cover w-full rounded-lg max-h-[350px] outline-none"
+            height={400}
+            className="object-cover w-400 rounded-lg max-h-[400px] outline-none"
           />
         </div>
 
         {/* Text area */}
-        <div className="w-full md:w-1/2">
-          <p className="text-justify text-md text-stone-900 dark:text-amber-50">
+        <div className="w-full md:w-1/2 items-center flex">
+          <p className={`${space.className} text-justify text-md text-stone-900 dark:text-amber-50`}>
             I am a passionate software engineer with a strong focus on crafting
             modern, responsive, seamless user experiences and user-friendly
             front-end applications leveraging tools such as <b>React.js</b> and{" "}

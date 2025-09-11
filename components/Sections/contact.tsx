@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { playfair, poppins } from "@/app/font";
+import { playfair, poppins, space } from "@/app/font";
 import {
   CircleUser,
   Mail,
@@ -58,7 +58,7 @@ export default function Contact() {
           <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-amber-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
         </div>
 
-        {/* Responsive layout for contact form and socials */}
+        
         <div className="flex flex-col md:flex-row gap-8 mt-10 py-14">
           {/* Left side - Contact Form */}
           <div className="flex flex-col gap-4 w-full md:w-1/2">
@@ -68,7 +68,7 @@ export default function Contact() {
               Feel free to reach out for collaborations or just a friendly hello!
             </span>
 
-            <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4 text-stone-950">
+            <form ref={form} onSubmit={sendEmail} className={`${space.className} flex flex-col gap-4 text-stone-950`}>
               <input
                 type="text"
                 name="user_name"
@@ -99,7 +99,7 @@ export default function Contact() {
 
             {/* Status message */}
             {status && (
-              <p className="mt-2 text-sm font-medium text-[#412201] dark:text-amber-50">{status}</p>
+              <p className={`${space.className} mt-2 text-sm font-medium text-[#412201] dark:text-amber-50`}>{status}</p>
             )}
           </div>
 
@@ -115,13 +115,13 @@ export default function Contact() {
               <div className="border-b border-oil-brown gap-6 flex items-center py-2 px-4">
                 <Mail size={24} className="text-[#734d26] dark:text-amber-50" />
                 <h2
-                  className={`${poppins.className} antialiased text-xl text-[#412201] dark:text-amber-50`}
+                  className={`${space.className} antialiased text-xl text-[#412201] dark:text-amber-50`}
                 >
                   Gmail
                 </h2>
               </div>
 
-              <span className="flex mt-1.5 items-center justify-center p-2 text-xl text-stone-950 hover:text-amber-50 dark:text-amber-50 dark:hover:text-yellow-500 transition-colors duration-300 ease-in-out">
+              <span className={`${space.className} flex mt-1.5 items-center justify-center p-2 text-xl text-stone-950 hover:text-amber-50 dark:text-amber-50 dark:hover:text-yellow-500 transition-colors duration-300 ease-in-out`}>
                 <Link
                   href="mailto:uzomanwaiwu@gmail.com"
                   target="_blank"
@@ -151,7 +151,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                 >
                   <h2
-                    className={`${poppins.className} antialiased hover:text-stone-950 text-lg text-[#412201] dark:text-amber-50`}
+                    className={`${space.className} antialiased hover:text-stone-950 text-lg text-[#412201] dark:text-amber-50`}
                   >
                     Linkedin
                   </h2>
@@ -176,7 +176,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                 >
                   <h2
-                    className={`${poppins.className} antialiased hover:text-stone-950 text-lg text-[#412201] dark:text-amber-50`}
+                    className={`${space.className} antialiased hover:text-stone-950 text-lg text-[#412201] dark:text-amber-50`}
                   >
                     Github
                   </h2>

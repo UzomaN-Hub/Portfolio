@@ -1,4 +1,4 @@
-import { playfair, poppins } from "@/app/font";
+import { playfair, space } from "@/app/font";
 import { Voicemail, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from 'framer-motion'
@@ -163,7 +163,7 @@ export default function Recommendation() {
         {/* Carousel */}
         <div className="overflow-hidden relative">
           {cardsToShow === 1 ? (
-            // Mobile: Only show one card
+            // Mobile: show one card
             <div className="flex justify-center items-center mt-10 py-10">
               <div className="w-full max-w-sm px-2">
                 <div className="border border-oil-brown flex flex-col hover:shadow-lg hover:shadow-oil-brown transition-shadow duration-300 ease-in-out p-4 h-full bg-white dark:bg-[#412201]">
@@ -176,12 +176,12 @@ export default function Recommendation() {
                   </div>
                   <div className="border-t border-oil-brown flex flex-col mt-3 items-center justify-center p-4 flex-grow">
                     <span
-                      className={`${poppins.className} antialiased text-lg text-[#412201] font-semibold dark:text-amber-50`}
+                      className={`${space.className} antialiased text-lg text-[#412201] font-semibold dark:text-amber-50`}
                     >
                       {references[mobileCurrentIndex].name}
                     </span>
                     <span
-                      className={`${poppins.className} antialiased text-sm text-[#734d26]`}
+                      className={`${space.className} antialiased text-sm text-[#734d26]`}
                     >
                       {references[mobileCurrentIndex].position}
                     </span>
@@ -210,12 +210,12 @@ export default function Recommendation() {
                       </div>
                       <div className="border-t border-oil-brown flex flex-col mt-3 items-center justify-center p-4">
                         <span
-                          className={`${poppins.className} antialiased text-lg text-[#412201] font-semibold dark:text-amber-50`}
+                          className={`${space.className} antialiased text-lg text-[#412201] font-semibold dark:text-amber-50`}
                         >
                           {category.name}
                         </span>
                         <span
-                          className={`${poppins.className} antialiased text-sm text-[#734d26]`}
+                          className={`${space.className} antialiased text-sm text-[#734d26]`}
                         >
                           {category.position}
                         </span>

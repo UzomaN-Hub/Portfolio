@@ -18,7 +18,7 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div id="intro" className="w-full px-4 sm:px-6 md:px-8 py-6 shadow-md dark:border-b dark:border-yellow-500">
+      <div id="intro" className="mt-4 w-full px-4 sm:px-6 md:px-8 py-6 shadow-md dark:border-b dark:border-yellow-500">
         <div className="relative w-full group">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 cursor-pointer">
