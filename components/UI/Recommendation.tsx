@@ -76,7 +76,7 @@ export default function Recommendation() {
         setMobileCurrentIndex((prevIndex) =>
           prevIndex === maxMobileIndex ? 0 : prevIndex + 1
         );
-      }, 3000);
+      }, 4000);
       return () => clearInterval(interval);
     }
   }, [maxMobileIndex, cardsToShow]);
@@ -118,7 +118,7 @@ export default function Recommendation() {
         setDesktopCurrentIndex((prevIndex) =>
           (prevIndex + 1) % (totalSlides - cardsToShow + 1)
         );
-      }, 5000); // Change slide every 5 seconds
+      }, 4000); // Change slide every 5 seconds
       return () => clearInterval(interval);
     }
   }, [cardsToShow, totalSlides]);
