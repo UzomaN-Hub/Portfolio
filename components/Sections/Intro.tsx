@@ -16,7 +16,7 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
       className="w-full py-6"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div id="intro" className="mt-4 w-full px-4 sm:px-6 md:px-8 py-6 shadow-md dark:border-b dark:border-yellow-500">
         <div className="relative w-full group">

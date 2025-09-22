@@ -25,7 +25,7 @@ export default function About() {
             alt="profile"
             width={400}
             height={400}
-            className="object-cover w-400 rounded-lg max-h-[450px] outline-none"
+            className="object-cover w-400 rounded-lg max-h-[420px] outline-none"
           />
         </div>
 

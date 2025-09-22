@@ -95,7 +95,7 @@ export default function SkillCard() {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
     >
       <div className="w-full px-4 py-6 bg-dark-oil-brown shadow-md dark:border-b dark:border-yellow-500">
         <div className="flex relative items-center gap-2 cursor-pointer group mb-8">

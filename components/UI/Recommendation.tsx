@@ -132,7 +132,7 @@ export default function Recommendation() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
       >
         <div className="text-[#412201] dark:text-amber-50">Loading recommendations...</div>
       </motion.div>
