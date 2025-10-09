@@ -5,29 +5,29 @@ import { playfair, space } from "@/app/font";
 const projects = [
   {
     image: "/project1.png",
+    title: "Transcriber + Translator",
+    tech: ["Next.js", "Python", "Fast API", "Tailwind CSS"],
+    description:
+      "A web application that allows users to live record, upload audio files of any format and get a transcription of the audio in text format. It also allows users to input text and generate audio from the text in any language. It also has a translation feature that allows users to translate text from one language to another.",
+    demo: "https://transcribe-gray.vercel.app/",
+    id: "read_more_1",
+  },
+  {
+    image: "/project2.png",
     title: "Product Menu",
     tech: ["React.js", "Tailwind CSS", "JavaScript"],
     description:
       "A Product Menu that displays a list of products with their images, names, and prices. It also allows users to add products to their carts in any quantity and also remove products from their cart.",
     demo: "https://product-list-vite.vercel.app/",
-    id: "read_more_1",
+    id: "read_more_2",
   },
   {
-    image: "/project2.png",
+    image: "/project3.png",
     title: "Interactive Comment Section",
     tech: ["Next.js", "Tailwind CSS", "TypeScript"],
     description:
       "An interactive comment section that allows users to post comments, reply to others, and like/dislike comments. It also features real-time updates and upvoting/downvoting functionality.",
     demo: "https://interactive-comment-project.vercel.app/",
-    id: "read_more_2",
-  },
-  {
-    image: "/project3.png",
-    title: "Browser Extension",
-    tech: ["React.js", "Tailwind CSS", "JavaScript"],
-    description:
-      "A browser extension that enhances the users browsing experience by providing additional features and functionalities. It also includes a light and dark mode for better usability, toggleable via a button in the extensions UI.",
-    demo: "https://browser-extension-js.vercel.app/",
     id: "read_more_3",
   },
 ];
