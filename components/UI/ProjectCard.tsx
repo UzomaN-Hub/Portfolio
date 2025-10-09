@@ -6,7 +6,7 @@ const projects = [
   {
     image: "/project1.png",
     title: "Transcriber + Translator",
-    tech: ["Next.js", "Python", "Fast API", "Tailwind CSS"],
+    tech: ["Next.js", "Python", "Fast API"],
     description:
       "A web application that allows users to live record, upload audio files of any format and get a transcription of the audio in text format. It also allows users to input text and generate audio from the text in any language. It also has a translation feature that allows users to translate text from one language to another.",
     demo: "https://transcribe-gray.vercel.app/",

@@ -23,13 +23,13 @@ export default function SkillCard() {
       id: 'backend',
       title: "Backend Skills",
       icon: <Settings size={24} />,
-      skills: ["Python", "Django"]
+      skills: ["Python", "Django", "Fast API"]
     },
     {
       id: 'deployment',
       title: "Version Control Skills",
       icon: <Rocket size={24} />,
-      skills: ["Vercel", "Git & Github", "Netlify"]
+      skills: ["Vercel", "Git & Github", "Netlify", "Render"]
     },
     {
       id: 'soft-skills',
