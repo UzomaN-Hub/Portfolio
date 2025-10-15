@@ -49,7 +49,7 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
 
           <div>
             <p className={`${playfair.className} antialiased text-base sm:text-lg text-oil-brown dark:text-dark-text-light-brown text-center px-2`}> 
-              Software Engineer | Front-End Developer | FullStack Developer
+              Software Engineer | FullStack Developer
             </p>
           </div>
 
