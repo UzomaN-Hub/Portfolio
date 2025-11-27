@@ -34,8 +34,8 @@ const projects = [
 
 export default function ProjectCard() {
   return (
-    <div className="w-full 2xl:py-20">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+    <div className="w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
         {projects.map((project, idx) => (
           <div
             key={project.title}

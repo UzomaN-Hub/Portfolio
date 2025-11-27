@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
-import { usePathname } from 'next/navigation'; 
+import { usePathname } from 'next/navigation';
 import { playfair, poppins } from "@/app/font";
 import { House, UserPen, Pill, FolderOpenDot, CircleUser, FileUser, Wrench } from "lucide-react";
 
@@ -13,6 +13,8 @@ interface SidenavProps {
 export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("intro");
+  
+  
   const currentPathname = usePathname();
 
   const navLinks = useMemo(() => [
@@ -32,8 +34,8 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
 
     const observerOptions = {
       root: null,
-      rootMargin: "0px", // Changed to 0px for better mobile detection
-      threshold: 0, 
+      rootMargin: "0px", 
+      threshold: 0,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -57,6 +59,7 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
     return () => {
       observerRef.current?.disconnect();
     };
+
   }, [navLinks]);
 
   const handleScroll = (id: string) => {
@@ -78,12 +81,12 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
 
   return (
     <>
-      {/* Mobile toggle button (still fixed) */}
+     
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className={`fixed top-4 left-4 z-[99] md:hidden p-2 rounded 
-                    ${isLightMode ? 'text-soft-black bg-eggshell' : 'text-eggshell bg-soft-black'}
-                    `}
+        className={`fixed top-4 left-4 z-[99] lg:hidden p-2 rounded 
+          ${isLightMode ? 'text-soft-black bg-eggshell' : 'text-eggshell bg-soft-black'} 
+        `}
       >
         {isMenuOpen ? (
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -99,10 +102,11 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
       {/* Side navigation */}
       <aside
         className={`fixed top-0 left-0 h-full w-72 p-6 z-50 
-          ${isLightMode ? 'bg-oil-brown border-r-4 border-text-light-brown' : 'dark:bg-dark-eggshell border-r-4 border-gray-700'}
+          ${isLightMode ? 'bg-oil-brown/85 border-r-4 border-text-light-brown' : 'dark:bg-dark-eggshell border-r-4 border-gray-700'}
           transition-transform duration-300 ease-in-out
           ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
-          overflow-y-auto md:sticky md:top-0 md:h-screen md:flex-shrink-0 md:translate-x-0`} 
+          overflow-y-auto 
+          lg:sticky lg:top-0 lg:h-screen lg:flex-shrink-0 lg:translate-x-0`} 
       >
         <div className="mb-20 mt-4"> 
           <Link
@@ -118,7 +122,7 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
             Uzoma.
           </Link>
           <p className="mt-12 text-sm text-eggshell dark:text-dark-soft-black"> 
-            Software Engineer | Front-End Developer | FullStack Developer
+            Software Engineer | Senior Frontend Developer | FullStack Developer
           </p>
         </div>
 
@@ -139,7 +143,6 @@ export default function Sidenav({ isLightMode, onToggleTheme }: SidenavProps) {
                 transition-colors duration-300 ease-in-out
               `}
             >
-              
               {link.id === activeSection && isLightMode
                 ? <div className="text-yellow-300">{link.icon}</div>
                 : link.id === activeSection && !isLightMode
