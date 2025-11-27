@@ -11,7 +11,7 @@ export default function SkillCard() {
       id: 'frontend',
       title: "Frontend Skills",
       icon: <SquareCode size={24} />,
-      skills: ["React.js", "Next.js", "Tailwind CSS", "JavaScript"]
+      skills: ["Next.js", "React.js", "Tailwind CSS", "JavaScript", "TypeScript", "Zustand", "Shadcn-ui"]
     },
     {
       id: 'database',
@@ -23,7 +23,7 @@ export default function SkillCard() {
       id: 'backend',
       title: "Backend Skills",
       icon: <Settings size={24} />,
-      skills: ["Python", "Django", "Fast API"]
+      skills: ["Python", "Django", "Fast API", "Node.js", "RESTful APIs" ]
     },
     {
       id: 'deployment',
@@ -107,7 +107,7 @@ export default function SkillCard() {
         </div>
 
         {/* Carousel */}
-        <div className="overflow-hidden">
+        <div className="overflow-hidden 2xl:py-32">
           <div
             className="flex mt-10 py-10 transition-transform duration-1000 ease-in-out"
             style={{
@@ -125,7 +125,7 @@ export default function SkillCard() {
                 style={{ width: `${100 / cardsToShow}%` }}
                 className="flex-shrink-0 px-2"
               >
-                <div className="bg-amber-50 border border-oil-brown flex flex-col hover:shadow-lg hover:shadow-oil-brown transition-shadow duration-300 ease-in-out p-4 h-full">
+                <div className="bg-amber-50 border border-oil-brown flex flex-col hover:shadow-lg hover:shadow-oil-brown transition-shadow duration-300 ease-in-out p-20 h-full">
                   <div className="border-b border-oil-brown gap-6 flex items-center py-6 px-4">
                     {category.icon}
                     <h2 className={`${playfair.className} antialiased text-lg md:text-xl text-[#412201]`}>

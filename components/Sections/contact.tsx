@@ -59,7 +59,7 @@ export default function Contact() {
         </div>
 
         
-        <div className="flex flex-col md:flex-row gap-8 mt-10 py-14">
+        <div className="flex flex-col md:flex-row gap-8 mt-10 py-14 2xl:py-32">
           {/* Left side - Contact Form */}
           <div className="flex flex-col gap-4 w-full md:w-1/2">
             <span

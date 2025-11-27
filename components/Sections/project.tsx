@@ -17,7 +17,7 @@ export default function Projects() {
       </div>
 
       {/* Project Cards */}
-      <div className="mt-8">
+      <div className="mt-8 2xl:py-32 2xl:mt-0">
         <ProjectCard />
       </div>
     </div>

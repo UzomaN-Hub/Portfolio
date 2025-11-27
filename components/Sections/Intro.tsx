@@ -18,7 +18,7 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div id="intro" className="mt-4 w-full px-4 sm:px-6 md:px-8 py-6 shadow-md dark:border-b dark:border-yellow-500">
+      <div id="intro" className="mt-4 w-full px-4 sm:px-6 md:px-8 py-4 shadow-md dark:border-b dark:border-yellow-500 h-screen">
         <div className="relative w-full group">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 cursor-pointer">
@@ -40,9 +40,10 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
           <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-[#734d26] dark:bg-amber-50 origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out" />
         </div>
 
-        <div className="flex flex-col gap-3 items-center mt-10 mb-6 py-20 sm:py-32 md:py-44"> 
+        
+        <div className="flex flex-col gap-3 items-center mt-10 mb-6 py-20 sm:py-32 md:py-44 2xl:pt-60 2xl:pb-48"> 
           <div className="">
-            <h1 className={`${playfair.className} antialiased text-4xl sm:text-5xl font-bold mb-3 sm:mb-5 text-oil-brown dark:text-amber-50 text-center`}> 
+            <h1 className={`${playfair.className} antialiased text-5xl sm:text-5xl font-bold mb-3 sm:mb-5 text-oil-brown dark:text-amber-50 text-center`}> 
               UZOMA NWAIWU
             </h1>
           </div>
@@ -76,6 +77,7 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
               </button>
             </Link>
           </div>
+          
         </div>
       </div>
     </motion.div>

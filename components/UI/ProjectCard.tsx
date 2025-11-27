@@ -4,37 +4,37 @@ import { playfair, space } from "@/app/font";
 
 const projects = [
   {
-    image: "/project1.png",
-    title: "Transcriber + Translator",
-    tech: ["Next.js", "Python", "Fast API"],
+    image: "/project1.webp",
+    title: "Health Care Blog",
+    tech: ["Next.js", "Python", "FastAPI", "Zustand", "TanStackQuery"],
     description:
-      "A web application that allows users to live record, upload audio files of any format and get a transcription of the audio in text format. It also allows users to input text and generate audio from the text in any language. It also has a translation feature that allows users to translate text from one language to another.",
-    demo: "https://transcribe-gray.vercel.app/",
+      "A comprehensive healthcare blog platform that provides users with access to a wide range of health-related articles, tips, and resources. The platform features a user-friendly interface, allowing users to easily navigate through various health topics, read articles, and stay informed about the latest developments in the healthcare industry.",
+    demo: "https://primehealthcare.vercel.app/",
     id: "read_more_1",
   },
   {
-    image: "/project2.png",
-    title: "Product Menu",
-    tech: ["React.js", "Tailwind CSS", "JavaScript"],
+    image: "/project2.webp",
+    title: "Transcriber + Translator",
+    tech: ["Next.js", "Python", "Fast API", "TypeScript", "Vosk"],
     description:
-      "A Product Menu that displays a list of products with their images, names, and prices. It also allows users to add products to their carts in any quantity and also remove products from their cart.",
-    demo: "https://product-list-vite.vercel.app/",
+      "A web application that allows users to live record, upload audio files of any format and get a transcription of the audio in text format. It also allows users to input text and generate audio from the text in any language. It also has a translation feature that allows users to translate text from one language to another.",
+    demo: "https://transcribe-gray.vercel.app/",
     id: "read_more_2",
   },
   {
-    image: "/project3.png",
-    title: "Interactive Comment Section",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
+    image: "/project3.webp",
+    title: "Product Menu",
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "Vite"],
     description:
-      "An interactive comment section that allows users to post comments, reply to others, and like/dislike comments. It also features real-time updates and upvoting/downvoting functionality.",
-    demo: "https://interactive-comment-project.vercel.app/",
+      "A Product Menu that displays a list of products with their images, names, and prices. It also allows users to add products to their carts in any quantity and also remove products from their cart.",
+    demo: "https://product-list-vite.vercel.app/",
     id: "read_more_3",
   },
 ];
 
 export default function ProjectCard() {
   return (
-    <div className="w-full">
+    <div className="w-full 2xl:py-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
         {projects.map((project, idx) => (
           <div
