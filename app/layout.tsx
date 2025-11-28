@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     default: "Uzoma Nwaiwu | Software Engineer & FullStack Developer",
     template: "%s | Uzoma Nwaiwu"
   },
-  description: "Uzoma Nwaiwu is a passionate Software Engineer and FullStack Developer specializing in React.js, Next.js, Python, Django, and FastAPI. Building modern, scalable web applications in Port Harcourt, Nigeria.",
+  description: "Uzoma Nwaiwu builds modern web applications with Next.js, React.js, Python, FastAPI, and PostgresSQL. A Medical Laboratory Scientist turned Software Engineer, creating scalable solutions from Port Harcourt, Nigeria.",
   keywords: [
     "Uzoma Nwaiwu",
     "Software Engineer",
@@ -23,7 +23,11 @@ export const metadata: Metadata = {
     "TypeScript Developer",
     "Web Developer Nigeria",
     "Port Harcourt Developer",
-    "Software Engineer Nigeria"
+    "South Eastern Nigeria Developer",
+    "Nigeria Developer",
+    "Remote Software Engineer/Developer",
+    "Software Engineer Nigeria",
+    "Medical Lab Scientist turned Developer"
   ],
   authors: [{ name: "Uzoma Nwaiwu" }],
   creator: "Uzoma Nwaiwu",
@@ -33,13 +37,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://uzoma-nwaiwu.vercel.app", 
+    url: "https://www.uzomanwaiwu.com", 
     title: "Uzoma Nwaiwu | Software Engineer & FullStack Developer",
-    description: "Passionate Software Engineer specializing in full-stack development with React, Next.js, Python, and Django. Building modern, scalable web applications.",
+    description: "Building modern web applications with Next.js, React.js, Python, FastAPI, PostgresSQL. A Software Engineer specializing in scalable full-stack solutions.",
     siteName: "Uzoma Nwaiwu Portfolio",
     images: [
       {
-        url: "https://uzoma-nwaiwu.vercel.app/photo.webp", 
+        url: "https://www.uzomanwaiwu.com/photo.webp", 
         width: 1200,
         height: 630,
         alt: "Uzoma Nwaiwu - Software Engineer Portfolio",
@@ -51,8 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Uzoma Nwaiwu | Software Engineer & FullStack Developer",
-    description: "Passionate Software Engineer specializing in full-stack development with React, Next.js, Python, and Django.",
-    images: ["https://uzoma-nwaiwu.vercel.app/photo.webp"], 
+    description: "Building modern web applications with React.js, Next.js, Python, and FastAPI. Medical Lab Scientist turned Software Engineer.",
+    images: ["https://www.uzomanwaiwu.com/photo.webp"], 
     creator: "@BIGUZOMA", 
   },
 
@@ -70,12 +74,12 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: "hUh4grxjB_y0sJMA7Kx_xpxLhVQW7KxIHtFspq0Py-U",
     
+    google: "UeKYJk81Mt0OtjEsmPveXAXGKGEi1q9Pg9yYT6hSK5M",
   },
 
-  // Base URL
-  metadataBase: new URL("https://uzoma-nwaiwu.vercel.app"), 
+  // Base URL - UPDATED
+  metadataBase: new URL("https://www.uzomanwaiwu.com"), 
 
   // Canonical URL
   alternates: {
@@ -96,7 +100,7 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-// MOVED themeColor to viewport export (Next.js requirement)
+// Viewport config
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#734d26" },
@@ -109,18 +113,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Structured Data
+  // JSON-LD Structured Data - UPDATED
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Uzoma Nwaiwu",
     jobTitle: "Software Engineer",
-    description: "FullStack Developer specializing in React.js, Next.js, Python, Django, and FastAPI",
-    url: "https://uzoma-nwaiwu.vercel.app", 
-    image: "https://uzoma-nwaiwu.vercel.app/photo.webp",
+    description: "FullStack Developer specializing in React.js, Next.js, Python, Django, and FastAPI. Top notch expertise in building scalable web applications.",
+    url: "https://www.uzomanwaiwu.com", 
+    image: "https://www.uzomanwaiwu.com/photo.webp",
     sameAs: [
       "https://www.linkedin.com/in/uzoma-nwaiwu",
       "https://github.com/UzomaN-Hub",
+      "https://twitter.com/BIGUZOMA"
     ],
     address: {
       "@type": "PostalAddress",
@@ -141,7 +146,8 @@ export default function RootLayout({
       "Web Development",
       "Software Engineering",
       "RESTful APIs",
-      "Database Management"
+      "Database Management",
+      "Medical Laboratory Science"
     ],
     alumniOf: [
       {
