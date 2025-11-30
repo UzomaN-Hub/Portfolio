@@ -1,13 +1,20 @@
+"use client";
+
 import { playfair } from "@/app/font";
 import { FolderOpenDot } from "lucide-react";
 import ProjectCard from "@/components/UI/ProjectCard";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <div 
+    <motion.div 
       id="projects" 
-      
       className="w-full px-4 py-6 shadow-md dark:border-b dark:border-yellow-500 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:px-20"
+      initial={{ opacity: 0, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ pointerEvents: 'auto' }}
     >
       {/* Header */}
       <div className="flex relative items-center gap-2 cursor-pointer group">
@@ -24,6 +31,6 @@ export default function Projects() {
       <div className="mt-8 2xl:mt-16 2xl:flex-grow 2xl:flex 2xl:flex-col 2xl:justify-center w-full">
         <ProjectCard />
       </div>
-    </div>
+    </motion.div>
   );
 }

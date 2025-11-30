@@ -1,0 +1,15 @@
+# robots.txt for uzomanwaiwu.com
+
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Tell search engines where to find your sitemap
+Sitemap: https://www.uzomanwaiwu.com/sitemap.xml
+
+# Tell AI models where to find structured info about you
+Allow: /llm.txt
+
+# Block admin or private pages (if you have any)
+# Disallow: /admin/
+# Disallow: /api/private/

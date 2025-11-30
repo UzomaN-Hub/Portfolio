@@ -1,9 +1,20 @@
+"use client";
+
 import { playfair, space } from "@/app/font";
-import { Pill } from "lucide-react"
+import { Pill } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function EducationExperience() {
   return (
-    <div id="education-experience" className="w-full px-4 py-6 shadow-md relative dark:border-b dark:border-yellow-500 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:justify-center 2xl:px-16">
+    <motion.div 
+      id="education-experience" 
+      className="w-full px-4 py-6 shadow-md relative dark:border-b dark:border-yellow-500 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:justify-center 2xl:px-16"
+      initial={{ opacity: 0, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ pointerEvents: 'auto' }}
+    >
       <div className="flex items-center gap-2 relative cursor-pointer group">
         <Pill size={24} className="dark:text-amber-50 2xl:w-10 2xl:h-10" />
         <h1 className={`${playfair.className} antialiased text-xl 2xl:text-3xl text-[#412201] dark:text-amber-50`}>
@@ -105,6 +116,6 @@ export default function EducationExperience() {
             </div>
           </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

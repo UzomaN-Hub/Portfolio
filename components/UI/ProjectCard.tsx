@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { playfair, space } from "@/app/font";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -37,9 +40,14 @@ export default function ProjectCard() {
     <div className="w-full">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
         {projects.map((project, idx) => (
-          <div
+          <motion.div
             key={project.title}
             className="flex flex-col cursor-pointer p-4 bg-white dark:bg-dark-oil-brown rounded-lg shadow hover:shadow-lg transition-shadow duration-300 ease-in-out"
+            initial={{ opacity: 0, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: idx * 0.1 }}
+            style={{ pointerEvents: 'auto' }}
           >
             <div className="relative w-full h-48 rounded-lg overflow-hidden">
               <Image
@@ -92,7 +100,7 @@ export default function ProjectCard() {
                 Live Demo
               </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

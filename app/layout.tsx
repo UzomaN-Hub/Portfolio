@@ -4,10 +4,10 @@ import { inter } from "@/app/font";
 
 export const metadata: Metadata = {
   title: {
-    default: "Uzoma Nwaiwu | Software Engineer & FullStack Developer",
+    default: "Uzoma Nwaiwu | Software Engineer, FullStack Developer & Senior Frontend Developer",
     template: "%s | Uzoma Nwaiwu"
   },
-  description: "Uzoma Nwaiwu builds modern web applications with Next.js, React.js, Python, FastAPI, and PostgresSQL. A Medical Laboratory Scientist turned Software Engineer, creating scalable solutions from Port Harcourt, Nigeria.",
+  description: "Uzoma Nwaiwu builds modern web applications with Next.js, React.js, Python, FastAPI, and PostgresSQL. A Software Engineer, creating scalable solutions, robust websites and applications from Port Harcourt, Nigeria.",
   keywords: [
     "Uzoma Nwaiwu",
     "Software Engineer",

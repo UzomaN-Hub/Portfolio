@@ -10,7 +10,7 @@ export default function SkillCard() {
     {
       id: 'frontend',
       title: "Frontend Skills",
-      icon: <SquareCode size={24} className="2xl:w-8 2xl:h-8" />, // Added 2xl scaling
+      icon: <SquareCode size={24} className="2xl:w-8 2xl:h-8" />,
       skills: ["Next.js", "React.js", "Tailwind CSS", "JavaScript", "TypeScript", "Zustand", "Shadcn-ui"]
     },
     {
@@ -41,7 +41,6 @@ export default function SkillCard() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Determine how many cards to show based on screen width
   const getCardsToShow = () => {
     if (typeof window === 'undefined') return 3;
     if (window.innerWidth < 768) return 1;
@@ -59,30 +58,25 @@ export default function SkillCard() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
- 
   useEffect(() => {
     if (totalSlides > cardsToShow) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => {
-          
           return prevIndex >= maxIndex ? 0 : prevIndex + 1;
         });
       }, 3000); 
 
       return () => clearInterval(interval);
     } else {
-      
       setCurrentIndex(0);
     }
   }, [totalSlides, cardsToShow, maxIndex]); 
 
-  // Adjust currentIndex if cardsToShow changes (e.g., on resize)
   useEffect(() => {
     if (currentIndex > maxIndex) {
       setCurrentIndex(maxIndex > 0 ? maxIndex : 0);
     }
   }, [cardsToShow, currentIndex, maxIndex]);
-
 
   const handleDotClick = (index: number) => {
     setCurrentIndex(index);
@@ -91,12 +85,12 @@ export default function SkillCard() {
   return (
     <motion.div
       id="skills"
-      // Added 2xl:p-0 and 2xl:min-h-screen to outer wrapper
       className="w-full py-6 shadow-md relative 2xl:p-0 2xl:min-h-screen"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ pointerEvents: 'auto' }}
     >
       
       <div className="w-full px-4 py-6 bg-dark-oil-brown/50 shadow-md dark:border-b dark:border-yellow-500 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:px-16">
@@ -110,7 +104,6 @@ export default function SkillCard() {
           <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-amber-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
         </div>
 
-      
         <div className="overflow-hidden 2xl:flex-grow 2xl:flex 2xl:flex-col 2xl:justify-center">
           <div
             className="flex mt-10 py-10 transition-transform duration-1000 ease-in-out"
@@ -128,7 +121,6 @@ export default function SkillCard() {
                 <div className="bg-amber-50 border border-oil-brown flex flex-col hover:shadow-lg hover:shadow-oil-brown transition-shadow duration-300 ease-in-out p-4 2xl:p-8 h-full">
                   <div className="border-b border-oil-brown gap-6 flex items-center py-6 px-4">
                     {category.icon}
-                    {/* Text Scaling */}
                     <h2 className={`${playfair.className} antialiased text-lg md:text-xl 2xl:text-3xl text-[#412201]`}>
                       {category.title}
                     </h2>
@@ -137,7 +129,6 @@ export default function SkillCard() {
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        // Tag Scaling
                         className={`${space.className} antialiased flex cursor-pointer items-center border border-oil-brown bg-amber-50 text-oil-brown hover:rounded-full p-1.5 2xl:p-3 2xl:text-lg text-sm hover:text-amber-50 hover:bg-oil-brown transition-colors duration-300 ease-in-out`}
                       >
                         {skill}

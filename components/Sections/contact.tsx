@@ -43,12 +43,12 @@ export default function Contact() {
   return (
     <motion.div
       id="contact"
- 
       className="w-full py-6 2xl:p-0 2xl:min-h-screen"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+      style={{ pointerEvents: 'auto' }}
     >
       
       <div className="bg-dark-oil-brown/50 w-full px-4 py-6 shadow-md dark:border-b dark:border-yellow-500 2xl:shadow-none 2xl:border-none 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:px-16">

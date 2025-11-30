@@ -14,9 +14,10 @@ export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
     <motion.div
       id="intro"
       className="w-full py-6 2xl:p-0 2xl:min-h-screen" 
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ pointerEvents: 'auto' }} // Ensure interactions are always enabled
     >
       
       <div className="mt-4 w-full px-4 sm:px-6 md:px-8 py-4 shadow-md dark:border-b dark:border-yellow-500 2xl:shadow-none 2xl:border-none 2xl:mt-0 2xl:h-screen 2xl:flex 2xl:flex-col 2xl:px-12">

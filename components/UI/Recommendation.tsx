@@ -1,3 +1,5 @@
+"use client";
+
 import { playfair, space } from "@/app/font";
 import { Voicemail, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -61,8 +63,6 @@ export default function Recommendation() {
     return () => window.removeEventListener('resize', handleResize);
   }, []); 
 
-
-  // Mobile carousel logic
   const maxMobileIndex = cardsToShow === 1 ? totalSlides - 1 : 0;
 
   useEffect(() => {
@@ -80,7 +80,6 @@ export default function Recommendation() {
     setMobileCurrentIndex(index);
   };
 
-  // Desktop carousel navigation logic
   const handleNextDesktop = () => {
     if (cardsToShow && cardsToShow > 1) {
       setDesktopCurrentIndex((prevIndex) =>
@@ -122,10 +121,11 @@ export default function Recommendation() {
       <motion.div
         id="skills"
         className="w-full px-4 py-6 shadow-md relative min-h-[300px] 2xl:min-h-screen flex items-center justify-center" 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 0 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{ pointerEvents: 'auto' }}
       >
         <div className="text-[#412201] dark:text-amber-50">Loading recommendations...</div>
       </motion.div>
@@ -135,12 +135,12 @@ export default function Recommendation() {
   return (
     <motion.div
       id="skills"
-      // Added 2xl:p-0 and 2xl:min-h-screen
       className="w-full px-4 py-6 shadow-md relative 2xl:p-0 2xl:min-h-screen"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ pointerEvents: 'auto' }}
     >
       
       <div id="recommendation" className="w-full px-4 py-6 shadow-md 2xl:shadow-none 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:px-16">
@@ -187,7 +187,6 @@ export default function Recommendation() {
               </div>
             </div>
           ) : (
-            // Tablet/Desktop:
             <>
               <div className="flex mt-10 py-10 transition-transform duration-500 ease-in-out"
                    style={{ transform: `translateX(-${desktopCurrentIndex * (100 / cardsToShow)}%)` }}>
@@ -200,7 +199,6 @@ export default function Recommendation() {
                     
                     <div className="border border-oil-brown flex flex-col hover:shadow-lg hover:shadow-oil-brown transition-shadow duration-300 ease-in-out p-4 2xl:p-8 h-full bg-white dark:bg-[#412201]">
                       <div className="py-6 px-4 flex-grow"> 
-                        {/* Text Scaling */}
                         <h2
                           className={`${playfair.className} antialiased text-md 2xl:text-xl 2xl:leading-loose text-justify text-[#412201] dark:text-amber-50`}
                         >
@@ -229,7 +227,6 @@ export default function Recommendation() {
                 <>
                   <button
                     onClick={handlePrevDesktop}
-                    
                     className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#734d26] dark:bg-amber-50 text-white dark:text-[#412201] p-2 2xl:p-4 rounded-full shadow-lg z-10 hidden md:block"
                     aria-label="Previous recommendation"
                   >

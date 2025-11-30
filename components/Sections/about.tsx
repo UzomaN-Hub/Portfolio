@@ -1,13 +1,20 @@
+"use client";
+
 import { playfair, space } from "@/app/font";
 import { UserPen } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <div 
+    <motion.div 
       id="about" 
-      
       className="w-full px-4 py-6 bg-dark-oil-brown/50 shadow-md dark:border-b dark:border-yellow-500 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:px-16"
+      initial={{ opacity: 0, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ pointerEvents: 'auto' }}
     >
       
       {/* Header Area */}
@@ -51,6 +58,6 @@ export default function About() {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
