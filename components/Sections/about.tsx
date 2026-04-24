@@ -1,63 +1,78 @@
 "use client";
 
-import { playfair, space } from "@/app/font";
-import { UserPen } from "lucide-react";
 import Image from "next/image";
+import Container from "@/components/UI/Container";
+import SectionWrapper from "@/components/UI/SectionWrapper";
+import { playfair, space } from "@/app/font";
 import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <motion.div 
-      id="about" 
-      className="w-full px-4 py-6 bg-dark-oil-brown/50 shadow-md dark:border-b dark:border-yellow-500 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:px-16"
-      initial={{ opacity: 0, y: 0 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      style={{ pointerEvents: 'auto' }}
-    >
-      
-      {/* Header Area */}
-      <div className="flex relative items-center gap-2 cursor-pointer group 2xl:mt-4">
-        <UserPen size={30} className="text-[#412201] dark:text-amber-50 2xl:w-10 2xl:h-10" />
-        <h1 className={`${playfair.className} antialiased text-xl 2xl:text-3xl text-[#412201] dark:text-amber-50`}>
-          About Me...
-        </h1>
-        <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-amber-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
-      </div>
-
-      
-      <div className="flex flex-col md:flex-row mt-6 gap-6 py-8 md:py-24 2xl:flex-grow 2xl:justify-center 2xl:items-center 2xl:gap-20 2xl:max-w-[1600px] 2xl:mx-auto">
-        
-        <div className="w-full md:w-1/2 outline-none rounded-lg overflow-hidden flex justify-center mb-6 md:mb-0">
-          <Image
-            src="/photo.webp"
-            alt="Uzoma Nwaiwu"
-            width={400}
-            height={400}
-            className="object-cover w-400 rounded-lg max-h-[420px] 2xl:max-h-[600px] 2xl:w-[500px] outline-none shadow-lg"
-          />
-        </div>
-
-        {/* Text area */}
-        <div className="w-full md:w-1/2 items-center flex">
-          <p className={`${space.className} text-justify text-md 2xl:text-xl 2xl:leading-loose text-stone-900 dark:text-amber-50`}>
-            I am a passionate software engineer with a strong focus on crafting
-            modern, responsive, seamless user experiences and user-friendly
-            front-end applications leveraging tools such as <b>Next.js</b> and{" "}
-            <b>React.js</b>. Alongside front-end development, I also bring
-            experience in building robust back-end solutions with <b>Python, Django</b>{" "}
-            and <b>FastAPI</b>. <br />
-            <br />
-            Detail-oriented and client-focused, I strive to understand project
-            needs thoroughly and deliver solutions that ensure satisfaction. My
-            approach to every project is guided by a focus on clear communication
-            and effective teamwork. I pride myself on my ability to learn new
-            technologies quickly, which allows me to adapt to diverse challenges
-            and consistently deliver high-quality, impactful solutions.
+    <SectionWrapper id="about" className="bg-white dark:bg-slate-950">
+      <Container>
+        <div className="group relative mb-10 cursor-pointer">
+          <p className="mb-3 text-xl font-extrabold uppercase tracking-[0.35em] text-cyan-800 dark:text-cyan-400">
+            About Me
           </p>
+
+          <span className="absolute -bottom-3 left-0 h-[3px] w-full origin-left scale-x-0 rounded-full bg-cyan-800 transition-transform duration-700 ease-out group-hover:scale-x-100 dark:bg-cyan-400" />
         </div>
-      </div>
-    </motion.div>
+
+        <div className="relative grid items-center lg:grid-cols-[1.15fr_0.95fr]">
+          <motion.div
+            className="relative h-[340px] w-full overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100 shadow-2xl sm:h-[440px] lg:h-[560px] dark:border-slate-800 dark:bg-slate-900"
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+          >
+            <Image
+              src="/photo.webp"
+              alt="Uzoma Nwaiwu"
+              fill
+              className="object-cover object-[center_25%]"
+              priority
+            />
+          </motion.div>
+
+          <motion.div
+            className="relative z-10 mt-6 rounded-[2rem] border border-slate-200 bg-white/90 p-6 shadow-2xl backdrop-blur-xl sm:p-7 lg:-ml-20 lg:mt-0 lg:p-10 dark:border-slate-800 dark:bg-slate-950/90"
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.75, ease: "easeOut", delay: 0.12 }}
+          >
+            <h2
+              className={`${playfair.className} mb-5 text-2xl font-black leading-tight text-slate-950 sm:text-3xl lg:text-4xl dark:text-white`}
+            >
+              I build with clarity, precision, and purpose.
+            </h2>
+
+            <div
+              className={`${space.className} space-y-4 text-base leading-8 text-slate-800 sm:text-lg sm:leading-8 dark:text-slate-200`}
+            >
+              <p>
+                I am Uzoma Nwaiwu, a software engineer who approaches every
+                project with the mindset of building something useful,
+                professional, useable and dependable. My work is shaped by strong
+                attention to detail, clean execution, time efficiency and the ability to turn
+                ideas into digital products that feel structured, and
+                ready for real users.
+              </p>
+
+              <p>
+                With a foundation in STEM and a growing record of practical
+                software projects, I bring analytical thinking and
+                product awareness into every build. Whether I am creating a
+                portfolio, business platform, dashboard, API-driven product, or
+                full web application, my focus remains the same: quality,
+                usability, performance, scalability and solutions that can grow beyond the
+                first version.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </Container>
+    </SectionWrapper>
   );
 }

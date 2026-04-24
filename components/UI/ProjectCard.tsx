@@ -2,107 +2,98 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { playfair, space } from "@/app/font";
+import { ExternalLink } from "lucide-react";
+import { projectsData } from "@/components/data/project";
 import { motion } from "framer-motion";
-
-const projects = [
-  {
-    image: "/project1.webp",
-    title: "Health Care Blog",
-    tech: ["Next.js", "Python", "FastAPI", "Zustand", "TanStackQuery"],
-    description:
-      "A comprehensive healthcare blog platform that provides users with access to a wide range of health-related articles, tips, and resources. The platform features a user-friendly interface, allowing users to easily navigate through various health topics, read articles, and stay informed about the latest developments in the healthcare industry.",
-    demo: "https://primehealthcare.vercel.app/",
-    id: "read_more_1",
-  },
-  {
-    image: "/project2.webp",
-    title: "Transcriber + Translator",
-    tech: ["Next.js", "Python", "Fast API", "TypeScript", "Vosk"],
-    description:
-      "A web application that allows users to live record, upload audio files of any format and get a transcription of the audio in text format. It also allows users to input text and generate audio from the text in any language. It also has a translation feature that allows users to translate text from one language to another.",
-    demo: "https://transcribe-gray.vercel.app/",
-    id: "read_more_2",
-  },
-  {
-    image: "/project3.webp",
-    title: "Product Menu",
-    tech: ["React.js", "Tailwind CSS", "JavaScript", "Vite"],
-    description:
-      "A Product Menu that displays a list of products with their images, names, and prices. It also allows users to add products to their carts in any quantity and also remove products from their cart.",
-    demo: "https://product-list-vite.vercel.app/",
-    id: "read_more_3",
-  },
-];
+import { useState } from "react";
 
 export default function ProjectCard() {
+  const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
+
+  const toggleReadMore = (title: string) => {
+    setExpandedProjects((prev) =>
+      prev.includes(title)
+        ? prev.filter((item) => item !== title)
+        : [...prev, title]
+    );
+  };
+
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-        {projects.map((project, idx) => (
-          <motion.div
+    <div className="flex flex-col gap-10">
+      {projectsData.map((project, index) => {
+        const isExpanded = expandedProjects.includes(project.title);
+        const reverse = index % 2 !== 0;
+
+        return (
+          <motion.article
             key={project.title}
-            className="flex flex-col cursor-pointer p-4 bg-white dark:bg-dark-oil-brown rounded-lg shadow hover:shadow-lg transition-shadow duration-300 ease-in-out"
-            initial={{ opacity: 0, y: 0 }}
+            className={`group flex flex-col overflow-hidden rounded-[2.2rem] border border-slate-200 bg-slate-50 p-5 shadow-lg transition hover:border-cyan-800 hover:shadow-2xl hover:shadow-cyan-900/10 lg:min-h-[430px] lg:p-8 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-cyan-400 ${
+              reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+            }`}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: idx * 0.1 }}
-            style={{ pointerEvents: 'auto' }}
+            viewport={{ once: true, amount: 0.18 }}
+            transition={{
+              duration: 0.65,
+              ease: "easeOut",
+              delay: index * 0.08,
+            }}
           >
-            <div className="relative w-full h-48 rounded-lg overflow-hidden">
+            <div className="relative h-[260px] w-full overflow-hidden rounded-[1.7rem] lg:mt-0 lg:h-auto lg:flex-1">
               <Image
                 src={project.image}
-                alt="Project Image"
+                alt={project.title}
                 fill
-                className="object-cover"
+                className="object-cover object-center transition duration-700 group-hover:scale-105"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 to-transparent" />
             </div>
-            <h2
-              className={`${playfair.className} antialiased text-xl text-[#412201] dark:text-amber-50 mt-4 mb-2`}
-            >
-              {project.title}
-            </h2>
-            <div className="flex gap-2 items-center flex-wrap mb-2">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className={`${space.className} antialiased rounded-full px-3 py-1 text-xs text-amber-50 bg-oil-brown`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <div className="relative">
-              <input type="checkbox" id={project.id} className="peer hidden" />
-              <p className={`${space.className} line-clamp-2 text-justify mt-2 dark:text-amber-50 peer-checked:line-clamp-none`}>
+
+            <div className="flex flex-1 flex-col justify-center p-3 pt-6 lg:p-6">
+              <h3 className="text-3xl font-semibold text-slate-950 sm:text-4xl dark:text-white">
+                {project.title}
+              </h3>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full bg-cyan-800 px-4 py-2 text-sm font-bold text-white dark:bg-cyan-500 dark:text-slate-950"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <p
+                className={`mt-6 text-base font-medium leading-8 text-slate-700 sm:text-lg sm:leading-9 dark:text-slate-300 ${
+                  isExpanded ? "" : "line-clamp-2"
+                }`}
+              >
                 {project.description}
               </p>
-              <label
-                htmlFor={project.id}
-                className={`${space.className} antialiased mt-2 cursor-pointer text-sm text-yellow-500 hover:underline peer-checked:hidden`}
+
+              <button
+                onClick={() => toggleReadMore(project.title)}
+                className="mt-3 w-fit text-base font-extrabold text-cyan-800 transition hover:text-cyan-950 dark:text-cyan-400 dark:hover:text-cyan-300"
               >
-                Read More
-              </label>
-              <label
-                htmlFor={project.id}
-                className={`${space.className} antialiased mt-2 cursor-pointer text-sm text-yellow-500 hover:underline hidden peer-checked:inline`}
-              >
-                Read Less
-              </label>
-            </div>
-            <div className="flex items-center mt-4">
+                {isExpanded ? "Read Less" : "Read More"}
+              </button>
+
               <Link
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${space.className} antialiased border border-oil-brown bg-amber-50 text-oil-brown rounded-full px-4 py-2 text-sm hover:text-amber-50 hover:bg-oil-brown transition-colors duration-300 ease-in-out`}
+                className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-base font-bold text-white transition hover:-translate-y-1 hover:bg-cyan-800 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-400"
               >
-                Live Demo
+                View Live Project
+                <ExternalLink size={18} />
               </Link>
             </div>
-          </motion.div>
-        ))}
-      </div>
+          </motion.article>
+        );
+      })}
     </div>
   );
 }

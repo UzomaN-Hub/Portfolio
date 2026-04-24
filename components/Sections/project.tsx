@@ -1,36 +1,37 @@
 "use client";
 
-import { playfair } from "@/app/font";
-import { FolderOpenDot } from "lucide-react";
+import Link from "next/link";
+import { Github } from "lucide-react";
+import Container from "@/components/UI/Container";
+import SectionHeader from "@/components/UI/SectionHeader";
+import SectionWrapper from "@/components/UI/SectionWrapper";
 import ProjectCard from "@/components/UI/ProjectCard";
-import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <motion.div 
-      id="projects" 
-      className="w-full px-4 py-6 shadow-md dark:border-b dark:border-yellow-500 2xl:min-h-screen 2xl:flex 2xl:flex-col 2xl:px-20"
-      initial={{ opacity: 0, y: 0 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      style={{ pointerEvents: 'auto' }}
-    >
-      {/* Header */}
-      <div className="flex relative items-center gap-2 cursor-pointer group">
-        <FolderOpenDot size={30} className="text-[#734d26] dark:text-amber-50 2xl:w-10 2xl:h-10" />
-        <h1
-          className={`${playfair.className} antialiased text-xl 2xl:text-3xl text-[#412201] dark:text-amber-50`}
-        >
-          My Projects...
-        </h1>
-        <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-[#734d26] dark:bg-amber-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
-      </div>
+    <SectionWrapper id="projects" className="bg-white dark:bg-slate-950">
+      <Container>
+        <SectionHeader label="Projects" />
 
-  
-      <div className="mt-8 2xl:mt-16 2xl:flex-grow 2xl:flex 2xl:flex-col 2xl:justify-center w-full">
+        <p className="mb-12 max-w-4xl text-lg leading-8 text-slate-700 sm:text-xl sm:leading-9 dark:text-slate-300">
+          A collection of applications I have built while improving my frontend,
+          backend, API integration, and product implementation skills.
+        </p>
+
         <ProjectCard />
-      </div>
-    </motion.div>
+
+        <div className="mt-14 flex justify-center lg:justify-end">
+          <Link
+            href="https://github.com/UzomaN-Hub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full bg-cyan-800 px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-cyan-900/20 transition hover:-translate-y-1 hover:bg-slate-950 dark:bg-cyan-400 dark:text-slate-950 dark:hover:bg-white"
+          >
+            <Github size={20} />
+            See More Projects
+          </Link>
+        </div>
+      </Container>
+    </SectionWrapper>
   );
 }

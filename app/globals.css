@@ -6,18 +6,38 @@
   html {
     scroll-behavior: smooth;
   }
-  /* Ensure html and body take full height and are flex for the main layout */
-  html, body, #__next {
-    height: 100%;
+
+  html,
+  body,
+  #__next {
+    min-height: 100%;
     margin: 0;
     padding: 0;
   }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(6, 182, 212, 0.25);
+  }
 }
 
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  overflow: hidden;
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+  }
 }

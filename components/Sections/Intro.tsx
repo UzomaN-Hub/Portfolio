@@ -1,89 +1,67 @@
-"use client"
+"use client";
+
 import { playfair, poppins } from "@/app/font";
-import { House, CircleUser, FileUser, MoonStar, Sun } from "lucide-react";
+import { CircleUser, FileUser, FolderOpenDot } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-interface IntroProps {
-  isLightMode: boolean;
-  onToggleTheme: () => void;
-}
-
-export default function Intro({ isLightMode, onToggleTheme }: IntroProps) {
+export default function Intro() {
   return (
-    <motion.div
+    <section
       id="intro"
-      className="w-full py-6 2xl:p-0 2xl:min-h-screen" 
-      initial={{ opacity: 0, y: 0 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      style={{ pointerEvents: 'auto' }} // Ensure interactions are always enabled
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-slate-950"
     >
-      
-      <div className="mt-4 w-full px-4 sm:px-6 md:px-8 py-4 shadow-md dark:border-b dark:border-yellow-500 2xl:shadow-none 2xl:border-none 2xl:mt-0 2xl:h-screen 2xl:flex 2xl:flex-col 2xl:px-12">
-        
-        {/* HEADER PART */}
-        <div className="relative w-full group 2xl:pt-8">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <House size={24} className="dark:text-amber-50 2xl:w-8 2xl:h-8" />
-              <h1 className={`${playfair.className} antialiased text-xl dark:text-amber-50 2xl:text-3xl`}>
-                Home...
-              </h1>
-            </div>
+      <div className="absolute inset-0 bg-[url('/photo.webp')] bg-cover bg-center bg-no-repeat" />
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/80" />
 
-            <button onClick={onToggleTheme} className="cursor-pointer bg-oil-brown/40">
-              {isLightMode ? (
-                <MoonStar size={24} className="text-[#734d26] dark:text-eggshell 2xl:w-8 2xl:h-8" />
-              ) : (
-                <Sun size={24} className="text-blue-500 dark:text-eggshell 2xl:w-8 2xl:h-8" />
-              )}
-            </button>
-          </div>
-          <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-[#734d26] dark:bg-amber-50 origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out" />
+      <motion.div
+        className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 text-center"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+      >
+
+
+        <h1
+          className={`${playfair.className} text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-8xl`}
+        >
+          UZOMA NWAIWU
+        </h1>
+
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200 sm:text-xl lg:text-2xl">
+          Software Engineer | Full Stack Developer | Frontend Engineer
+        </p>
+
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+          <Link
+            href="#projects"
+            className={`${poppins.className} flex items-center gap-3 rounded-full bg-cyan-800 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-900/30 transition hover:-translate-y-1 hover:bg-emerald-600`}
+          >
+            <FolderOpenDot size={18} />
+            View Projects
+          </Link>
+
+          <Link
+            href="#contact"
+            className={`${poppins.className} flex items-center gap-3 rounded-full border border-white/25 bg-white/10 px-7 py-3 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-1 hover:border-amber-400 hover:bg-amber-500 hover:text-slate-950`}
+          >
+            <CircleUser size={18} />
+            Contact Me
+          </Link>
+
+          <Link
+            href="/Uzoma-Nwaiwu-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Uzoma-Nwaiwu-Resume.pdf"
+            className={`${poppins.className} flex items-center gap-3 rounded-full border border-cyan-300/40 px-7 py-3 text-sm font-semibold text-cyan-100 transition hover:-translate-y-1 hover:border-violet-400 hover:bg-red-600 hover:text-white`}
+          >
+            <FileUser size={18} />
+            Download CV
+          </Link>
         </div>
-
-        {/* MAIN CONTENT PART */}
-      
-        <div className="flex flex-col gap-3 items-center mt-10 mb-6 py-20 sm:py-32 md:py-44 2xl:py-0 2xl:my-0 2xl:gap-8 2xl:flex-grow 2xl:justify-center"> 
-          <div className="">
-            <h1 className={`${playfair.className} antialiased text-5xl sm:text-5xl 2xl:text-6xl font-bold mb-3 sm:mb-5 2xl:mb-8 text-oil-brown dark:text-amber-50 text-center`}> 
-              UZOMA NWAIWU
-            </h1>
-          </div>
-
-          <div>
-            <p className={`${playfair.className} antialiased text-base sm:text-lg 2xl:text-3xl text-oil-brown dark:text-dark-text-light-brown text-center px-2`}> 
-              Software Engineer | FullStack Developer
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 2xl:gap-10 items-center mt-6 2xl:mt-12"> 
-            <Link href="/#contact">
-              <button className={`${poppins.className} antialiased flex items-center justify-center w-full sm:w-auto hover:bg-amber-50 hover:text-oil-brown rounded-full gap-3 py-2.5 px-4 2xl:py-4 2xl:px-8 2xl:text-xl text-sm
-                text-amber-50 bg-oil-brown dark:text-dark-eggshell dark:bg-dark-oil-brown
-                hover:dark:bg-amber-50 hover:dark:text-dark-oil-brown
-                transition-colors duration-300 ease-in-out`}>
-                <CircleUser className="2xl:w-6 2xl:h-6" />Say Hello
-              </button>
-            </Link>
-            <Link
-              href="/Uzoma-Nwaiwu-Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              download="Uzoma-Nwaiwu-Resume.pdf"
-            >
-              <button className={`${poppins.className} antialiased flex items-center justify-center w-full sm:w-auto hover:bg-amber-50 hover:text-oil-brown rounded-full gap-3 py-2.5 px-4 2xl:py-4 2xl:px-8 2xl:text-xl text-sm
-                text-amber-50 bg-oil-brown dark:text-dark-eggshell dark:bg-dark-oil-brown
-                hover:dark:bg-amber-50 hover:dark:text-dark-oil-brown
-                transition-colors duration-300 ease-in-out`}>
-                <FileUser className="2xl:w-6 2xl:h-6" />Download CV
-              </button>
-            </Link>
-          </div>
-          
-        </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </section>
   );
 }
