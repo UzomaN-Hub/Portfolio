@@ -5,6 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   html,
@@ -13,10 +15,24 @@
     min-height: 100%;
     margin: 0;
     padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   body {
-    overflow-x: hidden;
+    width: 100%;
+    overscroll-behavior-x: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
   }
 
   ::selection {

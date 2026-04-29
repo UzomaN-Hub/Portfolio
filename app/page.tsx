@@ -17,10 +17,10 @@ import FloatingWhatsApp from "@/components/UI/FloatingWhatsApp";
 export default function Home() {
   return (
     <ThemeProvider>
-      <main className="min-h-screen scroll-smooth bg-slate-50 text-slate-950 transition-colors duration-500 dark:bg-slate-950 dark:text-white">
+      <main className="min-h-screen w-full max-w-full overflow-x-clip scroll-smooth bg-slate-50 text-slate-950 transition-colors duration-500 dark:bg-slate-950 dark:text-white">
         <TopNav />
         <SectionDots />
-        
+
         <FloatingWhatsApp />
         <Intro />
 

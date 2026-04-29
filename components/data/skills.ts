@@ -4,6 +4,7 @@ import {
   Rocket,
   Server,
   Sparkles,
+  Brain,
 } from "lucide-react";
 
 export const skillsData = [
@@ -76,4 +77,17 @@ export const skillsData = [
       "Product Thinking",
     ],
   },
+  {
+    id: "AI",
+    title: "AI Systems & Automation",
+    icon: Brain,
+    skills: [
+      "OpenAI API",
+      "WhatsApp Cloud API",
+      "AI-Powered Chatbots",
+      "AI-Driven Automation",
+      "AI Integration in Web Apps",
+    ],
+  },
 ];
+      

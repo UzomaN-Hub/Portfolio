@@ -4,11 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { projectsData } from "@/components/data/project";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ProjectCard() {
   const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const disableHeavyMotion = isMobile || shouldReduceMotion;
 
   const toggleReadMore = (title: string) => {
     setExpandedProjects((prev) =>
@@ -19,7 +31,7 @@ export default function ProjectCard() {
   };
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex w-full max-w-full flex-col gap-8 overflow-x-clip">
       {projectsData.map((project, index) => {
         const isExpanded = expandedProjects.includes(project.title);
         const reverse = index % 2 !== 0;
@@ -27,39 +39,43 @@ export default function ProjectCard() {
         return (
           <motion.article
             key={project.title}
-            className={`group flex flex-col overflow-hidden rounded-[2.2rem] border border-slate-200 bg-slate-50 p-5 shadow-lg transition hover:border-cyan-800 hover:shadow-2xl hover:shadow-cyan-900/10 lg:min-h-[430px] lg:p-8 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-cyan-400 ${
+            className={`group flex w-full max-w-full flex-col overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50 p-4 shadow-lg transition md:rounded-[2.2rem] lg:min-h-[430px] lg:p-8 dark:border-slate-800 dark:bg-slate-900/60 ${
               reverse ? "lg:flex-row-reverse" : "lg:flex-row"
             }`}
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.18 }}
-            transition={{
-              duration: 0.65,
-              ease: "easeOut",
-              delay: index * 0.08,
-            }}
+            initial={disableHeavyMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={disableHeavyMotion ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.12 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
           >
-            <div className="relative h-[260px] w-full overflow-hidden rounded-[1.7rem] lg:mt-0 lg:h-auto lg:flex-1">
+            <div className="relative h-[210px] w-full max-w-full overflow-hidden rounded-[1.2rem] bg-slate-200 sm:h-[260px] lg:h-auto lg:flex-1 dark:bg-slate-800">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover object-center transition duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                quality={70}
+                priority={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+                className={`object-cover object-center ${
+                  disableHeavyMotion
+                    ? ""
+                    : "transition duration-700 group-hover:scale-105"
+                }`}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/25 to-transparent" />
             </div>
 
-            <div className="flex flex-1 flex-col justify-center p-3 pt-6 lg:p-6">
-              <h3 className="text-3xl font-semibold text-slate-950 sm:text-4xl dark:text-white">
+            <div className="flex min-w-0 flex-1 flex-col justify-center p-2 pt-5 sm:p-3 lg:p-6">
+              <h3 className="break-words text-2xl font-semibold leading-tight text-slate-950 sm:text-4xl dark:text-white">
                 {project.title}
               </h3>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-5 flex max-w-full flex-wrap gap-2 overflow-hidden">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full bg-cyan-800 px-4 py-2 text-sm font-bold text-white dark:bg-cyan-500 dark:text-slate-950"
+                    className="max-w-full rounded-full bg-cyan-800 px-3 py-2 text-xs font-bold text-white sm:px-4 sm:text-sm dark:bg-cyan-500 dark:text-slate-950"
                   >
                     {tech}
                   </span>
@@ -67,8 +83,8 @@ export default function ProjectCard() {
               </div>
 
               <p
-                className={`mt-6 text-base font-medium leading-8 text-slate-700 sm:text-lg sm:leading-9 dark:text-slate-300 ${
-                  isExpanded ? "" : "line-clamp-2"
+                className={`mt-5 text-base font-medium leading-8 text-slate-700 dark:text-slate-300 ${
+                  isExpanded ? "" : "line-clamp-4 sm:line-clamp-2"
                 }`}
               >
                 {project.description}
@@ -85,7 +101,7 @@ export default function ProjectCard() {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-base font-bold text-white transition hover:-translate-y-1 hover:bg-cyan-800 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-400"
+                className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-cyan-800 sm:text-base dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-400"
               >
                 View Live Project
                 <ExternalLink size={18} />

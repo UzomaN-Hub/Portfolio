@@ -30,7 +30,7 @@ export default function Intro() {
         </h1>
 
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-200 sm:text-xl lg:text-2xl">
-          Software Engineer | Full Stack Developer | Frontend Engineer
+          Software Engineer | Full Stack Developer | AI Systems & Automation
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
